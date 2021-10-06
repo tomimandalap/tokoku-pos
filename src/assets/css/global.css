@@ -1,0 +1,15 @@
+body {
+  line-height: 24px;
+}
+::-webkit-scrollbar {
+  width: 0.5rem;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  width: 0.5rem;
+  border-radius: 10px;
+  background: #ddd;
+}
+.cursor {
+  cursor: pointer;
+}
