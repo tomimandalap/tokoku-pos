@@ -1,0 +1,78 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+#sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  min-height: 100vh;
+  max-height: 100vh;
+  background: #343a40;
+  border-right: 1px solid #888;
+  color: #fff;
+  transition: all 0.3s;
+  padding: 10px 20px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+}
+#sidebar .sidebar-header {
+  padding: 8px;
+}
+#content {
+  width: 100%;
+  overflow-x: hidden !important;
+}
+.collapsed .when-open,
+.not-collapsed .when-closed {
+  display: none;
+}
+.list_menu {
+  max-height: 88vh;
+  overflow-y: scroll;
+  overflow-x: hidden !important;
+}
+.list_menu::-webkit-scrollbar {
+  width: 0.3rem;
+}
+.list_menu::-webkit-scrollbar-thumb {
+  background: white;
+}
+.LayoutDefault__main {
+  max-height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden !important;
+}
+#active_link {
+  color: #fff;
+  padding: 5px 0 5px 5px;
+  margin: 0 0 5px 0;
+}
+#active_link:hover {
+  font-weight: bold;
+  border-bottom: 1px solid #fff;
+}
+.active_link {
+  font-weight: bold;
+  border-bottom: 1px solid #fff;
+}
+
+/* xsmal */
+@media (max-width: 575.98px) {
+  #sidebar {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  .sideactive {
+    animation: fadeInAnimation ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+  }
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}

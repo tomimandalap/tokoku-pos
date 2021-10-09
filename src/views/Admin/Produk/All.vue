@@ -1,6 +1,6 @@
 <template>
-  <layout-default title="TITLE" :countCart="mapData.length" @show="hanldeShow">
-    <b-row style="margin: 100px 0 20px 0">
+  <layout-default>
+    <b-row style="margin: 30px 0 20px 0">
       <b-col cols="12">
         <b-input-group>
           <b-input-group-prepend>
@@ -52,75 +52,33 @@
           <b-card-text class="d-block text-truncate">
             {{ items.title }}
           </b-card-text>
+          <b-button size="sm" block variant="primary">
+            <b-icon icon="pencil" />
+            Update
+          </b-button>
           <b-button
-            size="md"
+            size="sm"
             block
-            variant="primary"
-            @click="handleCart(items.id)"
+            variant="outline-primary"
+            @click="handleDetail(items.id)"
           >
-            <b-icon icon="cart" />
-            Add to cart
+            <b-icon icon="eye" />
+            Detail
           </b-button>
         </b-card>
       </b-col>
     </b-row>
-
-    <!-- list cart -->
-    <b-sidebar
-      v-model="idShow"
-      no-header
-      right
-      shadow
-      bg-variant="white"
-      text-variant="dark"
-      :width="width <= 576 ? '100%' : '25rem'"
-    >
-      <template #default="{ hide }">
-        <div class="text-center p-3">
-          <div
-            id="sidebar-no-header-title"
-            class="d-flex justify-content-between align-items-center"
-          >
-            <b-icon
-              icon="x"
-              variant="black"
-              font-scale="1.7"
-              class="rounded-circle cursor"
-              @click="hide"
-            ></b-icon>
-
-            <h4>List Pesanan Customer</h4>
-          </div>
-          <img
-            :src="require('@/assets/images/cartempty.svg')"
-            alt="cartempty.svg"
-            width="100px"
-            style="margin: 50px 0 25px 0"
-          />
-          <h5>Produk saat ini kosong</h5>
-          <em>Silahkan pilih produk terbaik kami.</em>
-        </div>
-      </template>
-    </b-sidebar>
   </layout-default>
 </template>
 <script>
-import LayoutDefault from '@/layouts/default.vue'
+import LayoutDefault from '@/layouts/dasboard.vue'
 export default {
-  name: 'Menu',
+  name: 'ProdukAll',
   components: {
     LayoutDefault,
   },
-  data: () => ({
-    idShow: null,
-    width: 0,
-  }),
-  created() {
-    window.addEventListener('resize', this.handleResize)
-    this.handleResize()
-  },
-  destroyed() {
-    window.removeEventListener('resize', this.handleResize)
+  data() {
+    return {}
   },
   computed: {
     loading() {
@@ -138,14 +96,8 @@ export default {
       this.$store.commit('setLoading', true)
       this.$store.dispatch('getPhotos')
     },
-    hanldeShow(params) {
-      this.idShow = params
-    },
-    handleResize() {
-      this.width = window.innerWidth
-    },
-    handleCart(id) {
-      alert(id)
+    handleDetail(params) {
+      console.log(params)
     },
   },
 }

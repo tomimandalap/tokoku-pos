@@ -4,7 +4,7 @@
     <b-navbar fixed="top" type="dark" variant="dark">
       <b-container>
         <b-navbar-brand href="#" class="font-weight-bold">
-          TOKOKU {{ pesan }}
+          {{ title }}
         </b-navbar-brand>
 
         <!-- <b-navbar-toggle target="nav-collapse">
@@ -23,7 +23,13 @@
             <div class="text-center">
               <b-button variant="link" @click="hanleCart">
                 <b-icon icon="cart" style="color: #fff" class="mr-2"></b-icon>
-                <b-badge variant="light">0</b-badge>
+                <b-badge
+                  variant="light"
+                  :class="{ 'text-danger': countCart >= 99 }"
+                >
+                  {{ countCart }}
+                  <sup v-show="countCart >= 99">+</sup>
+                </b-badge>
               </b-button>
             </div>
 
@@ -39,7 +45,10 @@
                 <span class="sr-only">Avatar</span>
               </template>
               <b-dropdown-item to="/admin">Profile</b-dropdown-item>
-              <b-dropdown-item to="/logout">Keluar</b-dropdown-item>
+              <b-dropdown-item to="/logout">
+                <b-icon icon="box-arrow-left" />
+                Keluar
+              </b-dropdown-item>
             </b-dropdown>
           </b-navbar-nav>
         </b-collapse>
@@ -55,7 +64,8 @@
 <script>
 export default {
   props: {
-    pesan: { type: String, default: '' },
+    title: { type: String, default: 'TOKOKU' },
+    countCart: { type: Number, default: 0 },
   },
   data: () => ({}),
   methods: {
@@ -65,3 +75,4 @@ export default {
   },
 }
 </script>
+<style scoped src="@/assets/css/cashier.css"></style>

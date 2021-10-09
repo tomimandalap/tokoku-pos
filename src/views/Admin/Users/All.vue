@@ -1,12 +1,12 @@
 <template>
   <layout-default>
-    <div>Halo</div>
+    <div>All User {{ $route.path }}</div>
   </layout-default>
 </template>
 <script>
 import LayoutDefault from '@/layouts/dasboard.vue'
 export default {
-  name: 'Admin',
+  name: 'UserAll',
   components: {
     LayoutDefault,
   },

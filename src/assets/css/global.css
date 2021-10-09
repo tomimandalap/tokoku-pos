@@ -1,5 +1,10 @@
+* {
+  text-decoration: none !important;
+  list-style: none;
+}
 body {
   line-height: 24px;
+  overflow: hidden !important;
 }
 ::-webkit-scrollbar {
   width: 0.5rem;
@@ -8,7 +13,7 @@ body {
 ::-webkit-scrollbar-thumb {
   width: 0.5rem;
   border-radius: 10px;
-  background: #ddd;
+  background: #343a40;
 }
 .cursor {
   cursor: pointer;
